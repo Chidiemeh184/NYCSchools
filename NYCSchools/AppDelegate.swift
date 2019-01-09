@@ -17,30 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
-        let schools = "https://data.cityofnewyork.us/resource/97mf-9njv.json"
-        let scores = "https://data.cityofnewyork.us/resource/734v-jeq5.json"
-
-        let context = coreData.persistentContainer.viewContext
-        let networkService = NetworkService(managedObjectContext: context)
-        
-        _ = networkService.loadSchoolsData(from: schools) { response in
-            switch response {
-            case .sucess(let nycschools):
-                print(nycschools[0])
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        _ = networkService.loadScoresData(from: scores) { response in
-            switch response {
-            case .sucess(let satscores):
-                print(satscores[0])
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
+//        let schools = "https://data.cityofnewyork.us/resource/97mf-9njv.json"
+//        let scores = "https://data.cityofnewyork.us/resource/734v-jeq5.json"
+//
+//        let context = coreData.persistentContainer.viewContext
+//        let networkService = NetworkService(managedObjectContext: context)
+//        
+//        _ = networkService.loadSchoolsData(from: schools) { response in
+//            switch response {
+//            case .sucess(let nycschools):
+//                print(nycschools[0])
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        _ = networkService.loadScoresData(from: scores) { response in
+//            switch response {
+//            case .sucess(let satscores):
+//                print(satscores[0])
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
         return true
     }
 

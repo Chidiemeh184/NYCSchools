@@ -23,6 +23,10 @@
 		EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */; };
 		EFE9A14121E5182C005758A3 /* School+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */; };
 		EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */; };
+		EFE9A14621E5B1CD005758A3 /* SchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A14521E5B1CD005758A3 /* SchoolTableViewController.swift */; };
+		EFE9A14821E5B92C005758A3 /* DownloadHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A14721E5B92C005758A3 /* DownloadHistoryTableViewController.swift */; };
+		EFE9A14A21E5B960005758A3 /* FiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A14921E5B960005758A3 /* FiltersViewController.swift */; };
+		EFE9A14C21E5B9B3005758A3 /* SchoolDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A14B21E5B9B3005758A3 /* SchoolDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,10 @@
 		EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SATScore+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFE9A14521E5B1CD005758A3 /* SchoolTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTableViewController.swift; sourceTree = "<group>"; };
+		EFE9A14721E5B92C005758A3 /* DownloadHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadHistoryTableViewController.swift; sourceTree = "<group>"; };
+		EFE9A14921E5B960005758A3 /* FiltersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersViewController.swift; sourceTree = "<group>"; };
+		EFE9A14B21E5B9B3005758A3 /* SchoolDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,10 @@
 		EFE9A12F21E45561005758A3 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A14521E5B1CD005758A3 /* SchoolTableViewController.swift */,
+				EFE9A14721E5B92C005758A3 /* DownloadHistoryTableViewController.swift */,
+				EFE9A14921E5B960005758A3 /* FiltersViewController.swift */,
+				EFE9A14B21E5B9B3005758A3 /* SchoolDetailTableViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -275,9 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9A14821E5B92C005758A3 /* DownloadHistoryTableViewController.swift in Sources */,
 				EFE9A10B21E4530F005758A3 /* ViewController.swift in Sources */,
+				EFE9A14C21E5B9B3005758A3 /* SchoolDetailTableViewController.swift in Sources */,
 				EFE9A13321E4576E005758A3 /* School+Codable.swift in Sources */,
 				EFE9A11121E4530F005758A3 /* NYCSchools.xcdatamodeld in Sources */,
+				EFE9A14A21E5B960005758A3 /* FiltersViewController.swift in Sources */,
 				EFE9A10921E4530F005758A3 /* AppDelegate.swift in Sources */,
 				EFE9A13F21E5182C005758A3 /* SATScore+CoreDataClass.swift in Sources */,
 				EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */,
@@ -286,6 +301,7 @@
 				EFE9A12D21E4544A005758A3 /* CoreDataStack.swift in Sources */,
 				EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */,
 				EFE9A13921E4761B005758A3 /* Result.swift in Sources */,
+				EFE9A14621E5B1CD005758A3 /* SchoolTableViewController.swift in Sources */,
 				EFE9A13721E472D8005758A3 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
