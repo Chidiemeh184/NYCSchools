@@ -14,6 +14,15 @@
 		EFE9A11321E45311005758A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A11221E45311005758A3 /* Assets.xcassets */; };
 		EFE9A11621E45311005758A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A11421E45311005758A3 /* LaunchScreen.storyboard */; };
 		EFE9A12121E45311005758A3 /* NYCSchoolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A12021E45311005758A3 /* NYCSchoolsTests.swift */; };
+		EFE9A12D21E4544A005758A3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A12C21E4544A005758A3 /* CoreDataStack.swift */; };
+		EFE9A13321E4576E005758A3 /* School+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13221E4576E005758A3 /* School+Codable.swift */; };
+		EFE9A13521E466DA005758A3 /* SATScore+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13421E466D9005758A3 /* SATScore+Codable.swift */; };
+		EFE9A13721E472D8005758A3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13621E472D8005758A3 /* NetworkService.swift */; };
+		EFE9A13921E4761B005758A3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13821E4761B005758A3 /* Result.swift */; };
+		EFE9A13F21E5182C005758A3 /* SATScore+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13B21E5182C005758A3 /* SATScore+CoreDataClass.swift */; };
+		EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */; };
+		EFE9A14121E5182C005758A3 /* School+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */; };
+		EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +47,15 @@
 		EFE9A11C21E45311005758A3 /* NYCSchoolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYCSchoolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFE9A12021E45311005758A3 /* NYCSchoolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYCSchoolsTests.swift; sourceTree = "<group>"; };
 		EFE9A12221E45311005758A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFE9A12C21E4544A005758A3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		EFE9A13221E4576E005758A3 /* School+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+Codable.swift"; sourceTree = "<group>"; };
+		EFE9A13421E466D9005758A3 /* SATScore+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SATScore+Codable.swift"; sourceTree = "<group>"; };
+		EFE9A13621E472D8005758A3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EFE9A13821E4761B005758A3 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		EFE9A13B21E5182C005758A3 /* SATScore+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SATScore+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SATScore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "School+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +97,11 @@
 		EFE9A10721E4530F005758A3 /* NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A13121E45573005758A3 /* helpers */,
+				EFE9A13021E45569005758A3 /* network */,
+				EFE9A12F21E45561005758A3 /* controller */,
+				EFE9A12E21E45554005758A3 /* view */,
+				EFE9A12B21E4542E005758A3 /* model */,
 				EFE9A10821E4530F005758A3 /* AppDelegate.swift */,
 				EFE9A10A21E4530F005758A3 /* ViewController.swift */,
 				EFE9A10C21E4530F005758A3 /* Main.storyboard */,
@@ -97,6 +120,58 @@
 				EFE9A12221E45311005758A3 /* Info.plist */,
 			);
 			path = NYCSchoolsTests;
+			sourceTree = "<group>";
+		};
+		EFE9A12B21E4542E005758A3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A13A21E51789005758A3 /* coreData models */,
+				EFE9A12C21E4544A005758A3 /* CoreDataStack.swift */,
+				EFE9A13221E4576E005758A3 /* School+Codable.swift */,
+				EFE9A13421E466D9005758A3 /* SATScore+Codable.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		EFE9A12E21E45554005758A3 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		EFE9A12F21E45561005758A3 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		EFE9A13021E45569005758A3 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A13621E472D8005758A3 /* NetworkService.swift */,
+				EFE9A13821E4761B005758A3 /* Result.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		EFE9A13121E45573005758A3 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		EFE9A13A21E51789005758A3 /* coreData models */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A13B21E5182C005758A3 /* SATScore+CoreDataClass.swift */,
+				EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */,
+				EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */,
+				EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */,
+			);
+			path = "coreData models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +276,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE9A10B21E4530F005758A3 /* ViewController.swift in Sources */,
+				EFE9A13321E4576E005758A3 /* School+Codable.swift in Sources */,
 				EFE9A11121E4530F005758A3 /* NYCSchools.xcdatamodeld in Sources */,
 				EFE9A10921E4530F005758A3 /* AppDelegate.swift in Sources */,
+				EFE9A13F21E5182C005758A3 /* SATScore+CoreDataClass.swift in Sources */,
+				EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */,
+				EFE9A14121E5182C005758A3 /* School+CoreDataClass.swift in Sources */,
+				EFE9A13521E466DA005758A3 /* SATScore+Codable.swift in Sources */,
+				EFE9A12D21E4544A005758A3 /* CoreDataStack.swift in Sources */,
+				EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */,
+				EFE9A13921E4761B005758A3 /* Result.swift in Sources */,
+				EFE9A13721E472D8005758A3 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

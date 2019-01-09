@@ -1,4 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="SATScore" representedClassName="SATScore" syncable="YES">
+        <attribute name="dbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numOfSatTestTakers" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="satCriticalReadingAvgScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="satMathAvgScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="satWritingAvgScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="School" representedClassName="School" syncable="YES">
+        <attribute name="academicopportunities1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="academicopportunities2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="admissionspriority11" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="admissionspriority21" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="admissionspriority31" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attendanceRate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bbl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="boro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="borough" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buildingCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bus" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="censusTract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="code1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="communityBoard" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="councilDistrict" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="directions1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ellPrograms" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="extracurricularActivities" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="faxNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="finalgrades" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9geapplicants1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9geapplicantsperseat1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9gefilledflag1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9swdapplicants1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9swdapplicantsperseat1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grade9swdfilledflag1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="grades2018" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="interest1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="method1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="neighborhood" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="offerRate1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overviewParagraph" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pctStuEnoughVariety" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pctStuSafe" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primaryAddressLine1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="program1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requirement1of1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requirement2of1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requirement3of1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requirement4of1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requirement5of1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="school10thSeats" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolAccessibilityDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolSports" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seats9ge1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seats9swd1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seats101" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stateCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subway" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalStudents" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="School" positionX="-63" positionY="-18" width="128" height="960"/>
+        <element name="SATScore" positionX="-54" positionY="144" width="128" height="135"/>
+    </elements>
 </model>
