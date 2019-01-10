@@ -78,5 +78,27 @@ public class School: NSManagedObject {
         totalStudents = school.totalStudents
         zip = school.zip
     }
+    
+    internal static func getSchools(managedObjectContext: NSManagedObjectContext) -> NSFetchedResultsController<School> {
+        let fetchedResultController: NSFetchedResultsController<School>
+        
+        let request: NSFetchRequest<School> = School.fetchRequest()
+        request.fetchBatchSize = 25
+
+        let formatSort = NSSortDescriptor(key: "schoolName.first", ascending: true)
+        let nameSort = NSSortDescriptor(key: "totalStudents", ascending: true)
+        request.sortDescriptors = [formatSort, nameSort]
+        
+        fetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: managedObjectContext, sectionNameKeyPath: "schoolName", cacheName: "NYCSchoolsLibrary")
+        
+        do {
+            try fetchedResultController.performFetch()
+        }
+        catch {
+            fatalError("Error in fetching records")
+        }
+        
+        return fetchedResultController
+    }
 
 }
