@@ -115,7 +115,6 @@ class SchoolDetailTableViewController: UITableViewController {
     // MARK: - Register Nibs
     
     private func registerNibs() {
-        tableView.register(UINib(nibName: SchoolTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SchoolTableViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: EmptyTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: HeaderTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: HeaderTableViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: MapTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MapTableViewCell.reuseIdentifier)

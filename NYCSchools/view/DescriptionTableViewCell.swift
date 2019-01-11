@@ -36,8 +36,8 @@ class DescriptionTableViewCell: UITableViewCell {
                             
                         \(schoolDescription)\n
                         Academic Opportunities: \(school.academicopportunities2 ?? ""),
-                        \(school.academicopportunities1 ?? ""),
-                        subway: \(school.subway ?? "")
+                        \(school.academicopportunities1 ?? "")\n
+                        Subway: \(school.subway ?? "")
                         Bus: \(school.bus ?? "")\n
                         Offer rate: \(school.offerRate1 ?? "")
                         """

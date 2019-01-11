@@ -10,7 +10,11 @@ import UIKit
 import CoreData
 
 class SchoolTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+    
+    // MARK: - Outlets
+    @IBOutlet weak var gridSelectionStyleSegmentedControl: UISegmentedControl!
+    
+    // MARK: - Properties
     var fetchedResultController: NSFetchedResultsController<School>!
     lazy var coreData = CoreDataStack()
     var selectedSchool: School?
@@ -18,6 +22,11 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: SchoolTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SchoolTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: EmptyTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.reuseIdentifier)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 290
         
         loadData()
     }
@@ -48,12 +57,19 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "schoolCell", for: indexPath)
-        
         let school = fetchedResultController.object(at: indexPath)
-        cell.textLabel?.text = school.schoolName ?? ""
-        
-        return cell
+        switch gridSelectionStyleSegmentedControl.selectedSegmentIndex {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "schoolCell", for: indexPath)
+            cell.textLabel?.text = school.schoolName ?? ""
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: SchoolTableViewCell.reuseIdentifier, for: indexPath) as! SchoolTableViewCell
+            cell.setUpWith(school: school)
+            return cell
+        default:
+            return EmptyTableViewCell()
+        }
     }
 
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
@@ -80,5 +96,10 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
          self.performSegue(withIdentifier: "schoolToSchoolDetail", sender: (indexPath))
     }
     
-
+    @IBAction func gridDisplayStyleSelected(_ sender: UISegmentedControl) {
+        self.tableView.beginUpdates()
+        self.tableView.reloadData()
+        self.tableView.endUpdates()
+    }
+    
 }

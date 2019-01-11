@@ -30,4 +30,11 @@ class SchoolTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setUpWith(school: School) {
+        schoolNameLabel.text = school.schoolName ?? ""
+        testScoreLabel.text = school.requirement2of1
+        stateLabel.text = "\(school.city ?? ""), \(school.stateCode ?? "")"
+        gradesLabel.text = " "
+    }
+    
 }
