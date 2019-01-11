@@ -16,3 +16,12 @@ extension NSString {
         return self.substring(to: 1)
     }
 }
+
+extension String {
+    func toPercentage() -> String {
+        var num = Double(self) ?? 0
+        num = num * 100
+        let formatted = String(format:"%.0f", num)
+        return "\(formatted)%"
+    }
+}

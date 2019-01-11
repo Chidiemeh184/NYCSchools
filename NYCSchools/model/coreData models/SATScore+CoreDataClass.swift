@@ -23,4 +23,17 @@ public class SATScore: NSManagedObject {
         satWritingAvgScore = score.satWritingAvgScore
         schoolName = score.schoolName
     }
+    
+    static func getScore(for dbn: String, managedObjectContext: NSManagedObjectContext) -> [SATScore] {
+        let request: NSFetchRequest<SATScore> = SATScore.fetchRequest()
+        request.predicate = NSPredicate(format: "dbn == %@", dbn)
+        
+        do {
+            let result = try managedObjectContext.fetch(request)
+            return result
+        }
+        catch {
+            fatalError()
+        }
+    }
 }

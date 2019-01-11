@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import  MapKit
 
 class MapTableViewCell: UITableViewCell {
+    
+    //Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var schoolAddress: UILabel!
+    
+    static let reuseIdentifier = "MapTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

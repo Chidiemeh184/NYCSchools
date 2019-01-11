@@ -10,6 +10,8 @@ import UIKit
 
 class EmptyTableViewCell: UITableViewCell {
 
+    static let reuseIdentifier = "EmptyTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

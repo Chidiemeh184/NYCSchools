@@ -36,6 +36,8 @@
 		EFE9A15A21E6DE0B005758A3 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A15821E6DE0B005758A3 /* HeaderTableViewCell.xib */; };
 		EFE9A15D21E6FF19005758A3 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A15B21E6FF19005758A3 /* MapTableViewCell.swift */; };
 		EFE9A15E21E6FF19005758A3 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A15C21E6FF19005758A3 /* MapTableViewCell.xib */; };
+		EFE9A16121E7064E005758A3 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */; };
+		EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		EFE9A15821E6DE0B005758A3 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		EFE9A15B21E6FF19005758A3 /* MapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
 		EFE9A15C21E6FF19005758A3 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
+		EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +174,8 @@
 				EFE9A15821E6DE0B005758A3 /* HeaderTableViewCell.xib */,
 				EFE9A15B21E6FF19005758A3 /* MapTableViewCell.swift */,
 				EFE9A15C21E6FF19005758A3 /* MapTableViewCell.xib */,
+				EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */,
+				EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 				EFE9A15621E6D949005758A3 /* EmptyTableViewCell.xib in Resources */,
 				EFE9A11321E45311005758A3 /* Assets.xcassets in Resources */,
 				EFE9A10E21E4530F005758A3 /* Main.storyboard in Resources */,
+				EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */,
 				EFE9A15E21E6FF19005758A3 /* MapTableViewCell.xib in Resources */,
 				EFE9A15A21E6DE0B005758A3 /* HeaderTableViewCell.xib in Resources */,
 				EFE9A15221E5DD02005758A3 /* SchoolTableViewCell.xib in Resources */,
@@ -320,6 +327,7 @@
 			files = (
 				EFE9A14821E5B92C005758A3 /* DownloadHistoryTableViewController.swift in Sources */,
 				EFE9A10B21E4530F005758A3 /* ViewController.swift in Sources */,
+				EFE9A16121E7064E005758A3 /* DescriptionTableViewCell.swift in Sources */,
 				EFE9A14C21E5B9B3005758A3 /* SchoolDetailTableViewController.swift in Sources */,
 				EFE9A13321E4576E005758A3 /* School+Codable.swift in Sources */,
 				EFE9A11121E4530F005758A3 /* NYCSchools.xcdatamodeld in Sources */,

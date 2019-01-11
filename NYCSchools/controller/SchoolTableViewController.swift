@@ -47,7 +47,6 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         return 0
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "schoolCell", for: indexPath)
         
@@ -65,20 +64,21 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         return fetchedResultController.section(forSectionIndexTitle: title, at: index)
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let sectionName = fetchedResultController.sectionIndexTitles
-//        let name = sectionName[1]
-//        return  name
-//    }
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "schoolToSchoolDetail" {
+            guard let indexPath = sender as? (IndexPath) else { return }
+            let school = fetchedResultController.object(at: indexPath)
+            let schoolDetailTVC = segue.destination as! SchoolDetailTableViewController
+            schoolDetailTVC.managedObjectContext = coreData.persistentContainer.viewContext
+            schoolDetailTVC.school = school
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         self.performSegue(withIdentifier: "schoolToSchoolDetail", sender: (indexPath))
+    }
+    
 
 }

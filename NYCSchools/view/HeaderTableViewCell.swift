@@ -9,6 +9,19 @@
 import UIKit
 
 class HeaderTableViewCell: UITableViewCell {
+    
+    //Outlets
+    @IBOutlet weak var schoolNameLabel: UILabel!
+    @IBOutlet weak var attendanceRateLabel: UILabel!
+    @IBOutlet weak var criticalReadingLabel: UILabel!
+    @IBOutlet weak var mathLabel: UILabel!
+    @IBOutlet weak var writingLabel: UILabel!
+    @IBOutlet weak var courseGradesLabel: UILabel!
+    @IBOutlet weak var standardizedTestLabel: UILabel!
+    @IBOutlet weak var sportsLabel: UILabel!
+    
+    //Properties
+    static let reuseIdentifier = "HeaderTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +32,17 @@ class HeaderTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setUpWith(school: School?, score: SATScore?) {
+        schoolNameLabel.text = school?.schoolName ?? ""
+        attendanceRateLabel.text = school?.attendanceRate?.toPercentage()
+        criticalReadingLabel.text = score?.satCriticalReadingAvgScore ?? "n/a"
+        mathLabel.text = score?.satMathAvgScore ?? "n/a"
+        writingLabel.text = score?.satWritingAvgScore ?? "n/a"
+        courseGradesLabel.text = school?.requirement1of1 ?? "n/a"
+        standardizedTestLabel.text = school?.requirement2of1 ?? "n/a"
+        sportsLabel.text = school?.schoolSports ?? "n/a"
     }
     
 }

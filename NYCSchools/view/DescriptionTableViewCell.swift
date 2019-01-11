@@ -1,5 +1,5 @@
 //
-//  SchoolTableViewCell.swift
+//  DescriptionTableViewCell.swift
 //  NYCSchools
 //
 //  Created by Chidi Emeh on 1/9/19.
@@ -8,16 +8,14 @@
 
 import UIKit
 
-class SchoolTableViewCell: UITableViewCell {
+class DescriptionTableViewCell: UITableViewCell {
     
-    //Outlets
-    @IBOutlet weak var schoolNameLabel: UILabel!
-    @IBOutlet weak var testScoreLabel: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var gradesLabel: UILabel!
+    //Outlet
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var moreButton: UIButton!
     
     //Properties
-    static let reuseIdentifier = "SchoolTableViewCell"
+    static let reuseIdentifier = "DescriptionTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
