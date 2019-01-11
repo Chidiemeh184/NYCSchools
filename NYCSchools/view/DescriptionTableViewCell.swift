@@ -28,4 +28,20 @@ class DescriptionTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setUpWith(school: School) {
+        let schoolDescription = school.overviewParagraph ?? ""
+        let description =
+                        """
+                        Description
+                            
+                        \(schoolDescription)\n
+                        Academic Opportunities: \(school.academicopportunities2 ?? ""),
+                        \(school.academicopportunities1 ?? ""),
+                        subway: \(school.subway ?? "")
+                        Bus: \(school.bus ?? "")\n
+                        Offer rate: \(school.offerRate1 ?? "")
+                        """
+        descriptionLabel.text = description
+    }
+    
 }

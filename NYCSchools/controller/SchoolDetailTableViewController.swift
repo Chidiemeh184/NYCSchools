@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import  CoreData
+import CoreData
+import MessageUI
 
 class SchoolDetailTableViewController: UITableViewController {
 
@@ -27,6 +28,8 @@ class SchoolDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         registerNibs()
         self.navigationController?.navigationItem.title = school?.schoolName ?? ""
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 350
     }
     
     func getScores(for school: String) {
@@ -67,14 +70,46 @@ class SchoolDetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.reuseIdentifier, for: indexPath) as! DescriptionTableViewCell
             let moreExpandingButton = cell.moreButton
             moreExpandingButton?.addTarget(self, action: #selector(SchoolDetailTableViewController.expandDescriptionButtonTapped(sender:)), for: .touchUpInside)
+            cell.setUpWith(school: school!)
             return cell
         default:
             return EmptyTableViewCell()
         }
     }
     
-    @objc func expandDescriptionButtonTapped(sender: UIButton){
-       isDescriptionMoreButtonTapped = !isDescriptionMoreButtonTapped ? true : false
+    // MARK: - Compose Email
+    @IBAction func composeEmail(_ sender: UIBarButtonItem) {
+        if !MFMailComposeViewController.canSendMail() {
+            let errorAlert = AlertMessage.error(for: "Email composing is unavailable")
+            self.present(errorAlert, animated: true, completion: nil)
+            return
+        }
+       
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+    
+        composeVC.setToRecipients([school?.schoolEmail ?? " "])
+        composeVC.setSubject("NYC School Inquiry")
+        composeVC.setMessageBody("Request Admission information", isHTML: false)
+        
+        self.present(composeVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Expand description with Animations
+    
+    @objc func expandDescriptionButtonTapped(sender: UIButton) {
+        print("Expanded ... ")
+        let changedTitle = isDescriptionMoreButtonTapped ? "more" : "less"
+        sender.setTitle(changedTitle, for: .normal)
+        isDescriptionMoreButtonTapped = !isDescriptionMoreButtonTapped ? true : false
+        let rowIndexPath = sender.tag
+        let indexPath = IndexPath(item: rowIndexPath, section: 0)
+        
+        UIView.animate(withDuration: 0.4) { [unowned self] in
+            self.tableView.beginUpdates()
+            self.tableView.reloadRows(at: [indexPath], with: .fade)
+            self.tableView.endUpdates()
+        }
     }
     
     // MARK: - Register Nibs
@@ -87,14 +122,12 @@ class SchoolDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: DescriptionTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DescriptionTableViewCell.reuseIdentifier)
     }
     
-    // MARK: GPS Selection
+    // MARK: - GPS Selection from Address
     
     @objc func addressOpenMapTapped(sender: UIButton) {
         let installedNavigationApps = ["Apple Maps" : "http://maps.apple.com" , "Google Maps" : "comgooglemaps://", "Waze" : "waze://"]
         let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
         for (mapName, mapAddress) in installedNavigationApps {
-            
-            
             let schlat = self.school!.latitude ?? "0.0"
             let schlon = self.school!.longitude ?? "0.0"
             
@@ -115,8 +148,23 @@ class SchoolDetailTableViewController: UITableViewController {
             }
             alert.addAction(button)
         }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alert.addAction(cancel)
+        
         self.present(alert, animated: true, completion: nil)
     }
-    
+}
 
+// MARK: Compose and send email
+
+extension SchoolDetailTableViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let error = error {
+            let errorAlert = AlertMessage.error(for: error.localizedDescription)
+            self.present(errorAlert, animated: true, completion: nil)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

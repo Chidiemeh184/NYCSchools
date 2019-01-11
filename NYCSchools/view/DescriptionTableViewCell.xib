@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onI-NK-G60">
-                        <rect key="frame" x="16" y="11" width="343" height="177"/>
+                        <rect key="frame" x="18" y="11" width="341" height="184"/>
                         <mutableString key="text">Students who are prepared for college must have an education that encourages them to take risks as they produce and perform. Our college preparatory curriculum develops writers and has built a tight-knit community. Our school develops students who can think analytically and write creatively. Our arts programming builds on our 25 years of experience in visual, performing arts and music on a middle school level. We partner with New Audience and the Whitney Museum as cultural partners. We are a International Baccalaureate (IB) candidate school that offers opportunities to take college courses at neighboring universities.</mutableString>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <nil key="textColor"/>
@@ -41,8 +41,8 @@
                     <constraint firstAttribute="bottom" secondItem="Q92-YR-YSL" secondAttribute="bottom" constant="7.5" id="YZG-LP-OZC"/>
                     <constraint firstItem="Q92-YR-YSL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="i2C-Lm-rmT"/>
                     <constraint firstItem="onI-NK-G60" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="izo-Cs-1av"/>
-                    <constraint firstItem="Q92-YR-YSL" firstAttribute="top" secondItem="onI-NK-G60" secondAttribute="bottom" constant="17" id="qYt-p1-RZc"/>
-                    <constraint firstItem="onI-NK-G60" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="r7g-R9-eLu"/>
+                    <constraint firstItem="Q92-YR-YSL" firstAttribute="top" secondItem="onI-NK-G60" secondAttribute="bottom" constant="10" id="qYt-p1-RZc"/>
+                    <constraint firstItem="onI-NK-G60" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="r7g-R9-eLu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

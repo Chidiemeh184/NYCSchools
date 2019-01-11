@@ -100,7 +100,13 @@
                             <outlet property="delegate" destination="rgV-WU-fcg" id="ttn-Ko-MTX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="School" id="ANf-aF-gZ9"/>
+                    <navigationItem key="navigationItem" title="School" id="ANf-aF-gZ9">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-secured-letter-16" id="F3K-rS-93g">
+                            <connections>
+                                <action selector="composeEmail:" destination="rgV-WU-fcg" id="K8c-Zf-WU9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5b4-4s-HYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +168,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="JCn-Mv-Oxg">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -211,4 +216,7 @@
             <point key="canvasLocation" x="3680.8000000000002" y="-401.64917541229386"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-secured-letter-16" width="16" height="12"/>
+    </resources>
 </document>
