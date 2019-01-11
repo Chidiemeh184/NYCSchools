@@ -94,11 +94,18 @@ class SchoolDetailTableViewController: UITableViewController {
         let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
         for (mapName, mapAddress) in installedNavigationApps {
             
+            
             let schlat = self.school!.latitude ?? "0.0"
             let schlon = self.school!.longitude ?? "0.0"
             
             guard
                 let latitude = Double(schlat), let longitude = Double(schlon) else { return }
+            
+            if latitude == 0.0 && longitude == 0.0 {
+                let errorAlert = AlertMessage.error(for: "Could not find latitude and longitude for the school address")
+                self.present(errorAlert, animated: true, completion: nil)
+                return
+            }
             
             let button = UIAlertAction(title: mapName, style: .default) {  (action) in
                 let schoolURL = URL(string: "\(mapAddress)?saddr=&daddr=\(latitude),\(longitude))&directionsmode=driving")

@@ -38,6 +38,7 @@
 		EFE9A15E21E6FF19005758A3 /* MapTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A15C21E6FF19005758A3 /* MapTableViewCell.xib */; };
 		EFE9A16121E7064E005758A3 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */; };
 		EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */; };
+		EFE9A16621E8411B005758A3 /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A16521E8411B005758A3 /* AlertMessages.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		EFE9A15C21E6FF19005758A3 /* MapTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapTableViewCell.xib; sourceTree = "<group>"; };
 		EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		EFE9A16521E8411B005758A3 /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				EFE9A14D21E5C8BC005758A3 /* Extensions.swift */,
+				EFE9A16521E8411B005758A3 /* AlertMessages.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */,
 				EFE9A14121E5182C005758A3 /* School+CoreDataClass.swift in Sources */,
 				EFE9A13521E466DA005758A3 /* SATScore+Codable.swift in Sources */,
+				EFE9A16621E8411B005758A3 /* AlertMessages.swift in Sources */,
 				EFE9A12D21E4544A005758A3 /* CoreDataStack.swift in Sources */,
 				EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */,
 				EFE9A13921E4761B005758A3 /* Result.swift in Sources */,
