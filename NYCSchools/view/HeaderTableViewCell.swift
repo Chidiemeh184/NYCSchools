@@ -19,6 +19,9 @@ class HeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var courseGradesLabel: UILabel!
     @IBOutlet weak var standardizedTestLabel: UILabel!
     @IBOutlet weak var sportsLabel: UILabel!
+    @IBOutlet weak var gradesLabel: UILabel!
+    @IBOutlet weak var studentsPopulationLabel: UILabel!
+    
     
     //Properties
     static let reuseIdentifier = "HeaderTableViewCell"
@@ -36,6 +39,8 @@ class HeaderTableViewCell: UITableViewCell {
     
     func setUpWith(school: School?, score: SATScore?) {
         schoolNameLabel.text = school?.schoolName ?? ""
+        gradesLabel.text = school?.grades2018 ?? "n/a"
+        studentsPopulationLabel.text = school?.totalStudents ?? "n/a"
         attendanceRateLabel.text = school?.attendanceRate?.toPercentage()
         criticalReadingLabel.text = score?.satCriticalReadingAvgScore ?? "n/a"
         mathLabel.text = score?.satMathAvgScore ?? "n/a"

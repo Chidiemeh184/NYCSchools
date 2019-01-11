@@ -22,10 +22,11 @@ class SchoolDetailTableViewController: UITableViewController {
     }
     var managedObjectContext: NSManagedObjectContext!
     var isDescriptionMoreButtonTapped = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNibs()
+        self.navigationController?.navigationItem.title = school?.schoolName ?? ""
     }
     
     func getScores(for school: String) {
@@ -59,6 +60,8 @@ class SchoolDetailTableViewController: UITableViewController {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: MapTableViewCell.reuseIdentifier, for: indexPath) as! MapTableViewCell
+            cell.setUpWith(school: school!)
+            cell.openMapToGPSButton.addTarget(self, action: #selector(SchoolDetailTableViewController.addressOpenMapTapped(sender:)), for: .touchUpInside)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: DescriptionTableViewCell.reuseIdentifier, for: indexPath) as! DescriptionTableViewCell
@@ -66,7 +69,7 @@ class SchoolDetailTableViewController: UITableViewController {
             moreExpandingButton?.addTarget(self, action: #selector(SchoolDetailTableViewController.expandDescriptionButtonTapped(sender:)), for: .touchUpInside)
             return cell
         default:
-            return UITableViewCell()
+            return EmptyTableViewCell()
         }
     }
     
@@ -83,4 +86,30 @@ class SchoolDetailTableViewController: UITableViewController {
         tableView.register(UINib(nibName: MapTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MapTableViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: DescriptionTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DescriptionTableViewCell.reuseIdentifier)
     }
+    
+    // MARK: GPS Selection
+    
+    @objc func addressOpenMapTapped(sender: UIButton) {
+        let installedNavigationApps = ["Apple Maps" : "http://maps.apple.com" , "Google Maps" : "comgooglemaps://", "Waze" : "waze://"]
+        let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
+        for (mapName, mapAddress) in installedNavigationApps {
+            
+            let schlat = self.school!.latitude ?? "0.0"
+            let schlon = self.school!.longitude ?? "0.0"
+            
+            guard
+                let latitude = Double(schlat), let longitude = Double(schlon) else { return }
+            
+            let button = UIAlertAction(title: mapName, style: .default) {  (action) in
+                let schoolURL = URL(string: "\(mapAddress)?saddr=&daddr=\(latitude),\(longitude))&directionsmode=driving")
+                if UIApplication.shared.canOpenURL(schoolURL!) {
+                    UIApplication.shared.open(schoolURL!, options: [:], completionHandler: nil)
+                }
+            }
+            alert.addAction(button)
+        }
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+
 }

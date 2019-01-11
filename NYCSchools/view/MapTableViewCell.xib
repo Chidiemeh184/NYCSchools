@@ -27,24 +27,31 @@
                     </mapView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="550 E Spring St, Columbus, OH 43215" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pU7-ik-kuN">
                         <rect key="frame" x="16" y="205" width="343" height="35.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEh-re-Kd7">
+                        <rect key="frame" x="16" y="193" width="343" height="64.5"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="XkP-jl-LNQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="2JQ-fq-q6f"/>
                     <constraint firstItem="XkP-jl-LNQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Iik-Pi-tip"/>
                     <constraint firstItem="pU7-ik-kuN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="K9q-VT-Qr3"/>
+                    <constraint firstItem="EEh-re-Kd7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ONK-CX-8Yp"/>
                     <constraint firstAttribute="bottom" secondItem="pU7-ik-kuN" secondAttribute="bottom" constant="27" id="Rpu-qh-fBB"/>
                     <constraint firstItem="pU7-ik-kuN" firstAttribute="top" secondItem="XkP-jl-LNQ" secondAttribute="bottom" constant="15" id="Wi2-2q-s2a"/>
                     <constraint firstAttribute="trailing" secondItem="XkP-jl-LNQ" secondAttribute="trailing" constant="16" id="ka7-uo-aRJ"/>
                     <constraint firstAttribute="trailing" secondItem="pU7-ik-kuN" secondAttribute="trailing" constant="16" id="lQ6-oc-wY3"/>
+                    <constraint firstAttribute="bottom" secondItem="EEh-re-Kd7" secondAttribute="bottom" constant="10" id="oXo-ba-HDd"/>
+                    <constraint firstItem="EEh-re-Kd7" firstAttribute="top" secondItem="XkP-jl-LNQ" secondAttribute="bottom" constant="3" id="p71-Lp-Ugr"/>
+                    <constraint firstAttribute="trailing" secondItem="EEh-re-Kd7" secondAttribute="trailing" constant="16" id="rH2-Jk-3EB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="mapView" destination="XkP-jl-LNQ" id="3JE-qd-sCj"/>
+                <outlet property="openMapToGPSButton" destination="EEh-re-Kd7" id="gKf-3m-95T"/>
                 <outlet property="schoolAddress" destination="pU7-ik-kuN" id="U1Q-ro-Raz"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="254.57271364317842"/>
