@@ -21,6 +21,7 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     var selectedSchool: School?
     var headerTitles: [String]?
     var searchString: String?
+    var filtersViewController: FiltersViewController?
     
     var context: NSManagedObjectContext!
 
@@ -95,6 +96,11 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
             let schoolDetailTVC = segue.destination as! SchoolDetailTableViewController
             schoolDetailTVC.managedObjectContext = coreData.persistentContainer.viewContext
             schoolDetailTVC.school = school
+        } else if segue.identifier == "toFiltersModal" {
+            print("Filters modal was performed ❇️  ❇️  ❇️  ❇️  ❇️")
+            let filtersNav = segue.destination as! UINavigationController
+            let filtersVC = filtersNav.viewControllers.first as! FiltersViewController
+            filtersVC.filterDelegate = self
         }
     }
     
@@ -128,5 +134,12 @@ extension SchoolTableViewController: UISearchBarDelegate {
         loadData()
         tableView.reloadData()
     }
-    
+}
+
+extension SchoolTableViewController: FiltersViewControllerDelegate {
+    func filterDidFinishFilteringSchools(with frc: NSFetchedResultsController<School>) {
+        fetchedResultController = frc
+        print("School is filtering and done: \(frc.fetchedObjects?.count) ❇️  ❇️")
+        tableView.reloadData()
+    }
 }

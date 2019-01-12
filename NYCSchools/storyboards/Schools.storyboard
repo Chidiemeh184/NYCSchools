@@ -69,7 +69,7 @@
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="filters" id="DHy-fN-RcR">
                             <connections>
-                                <segue destination="v1r-Dg-Wuc" kind="presentation" id="EFW-7S-hUs"/>
+                                <segue destination="v1r-Dg-Wuc" kind="presentation" identifier="toFiltersModal" id="EFW-7S-hUs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

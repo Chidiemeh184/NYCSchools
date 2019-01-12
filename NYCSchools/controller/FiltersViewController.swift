@@ -9,45 +9,59 @@
 import UIKit
 import CoreData
 
+protocol FiltersViewControllerDelegate {
+    func filterDidFinishFilteringSchools(with frc: NSFetchedResultsController<School>)
+}
+
 class FiltersViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var criticalReadingTextfield: UITextField!
     @IBOutlet weak var mathTextField: UITextField!
     @IBOutlet weak var writingTextField: UITextField!
-    @IBOutlet weak var attendanceRateSlider: UISlider!
-    @IBOutlet weak var attendanceRateTextField: UITextField!
-    @IBOutlet weak var studentSizeSlider: UISlider!
-    @IBOutlet weak var studentSizeTextField: UITextField!
     
     // MARK: Properties
     var schoolfetchedResultController: NSFetchedResultsController<School>!
     let satScoreFetchRequest: NSFetchRequest<SATScore> = SATScore.fetchRequest()
     lazy var coreData = CoreDataStack()
     var managedObjectContext : NSManagedObjectContext!
+
+    var filterDelegate: FiltersViewControllerDelegate?
     
-    var criticalReadingScore = "400"
-    var mathScore = "700"
-    var writingScore = "400"
+    var criticalReadingScore = "999"
+    var mathScore = "999"
+    var writingScore = "999"
+    var isAttendanceRateApplied = false
+    var isTotalStudentPopulationApplied = false
+    var equalitySign = "<"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         managedObjectContext = coreData.persistentContainer.viewContext
     }
     
-    @IBAction func attendanceRateChanged(_ sender: UISlider) {
-        
+    @IBAction func fromToBelowSegmentControlTapped(_ sender: UISegmentedControl) {
+        equalitySign = sender.selectedSegmentIndex == 0 ? ">" : "<"
     }
     
-    @IBAction func studentSizeChanged(_ sender: UISlider) {
-        
+    @IBAction func attendanceSwitchChanged(_ sender: UISwitch) {
+        isAttendanceRateApplied = sender.isOn ? true : false
     }
     
-    @IBAction func applyButtonTapped(_ sender: Any) {
+    @IBAction func totalStudentSwitchChanged(_ sender: UISwitch) {
+        isTotalStudentPopulationApplied = sender.isOn ? true : false
+    }
+    
+    @IBAction func restoreButtonTapped(_ sender: UIButton) {
+        let defaultFetchResultController = School.getSchools(managedObjectContext: CoreDataStack().persistentContainer.viewContext)
+        self.filterDelegate?.filterDidFinishFilteringSchools(with: defaultFetchResultController)
+    }
+    
+    @IBAction func updateButtonTapped(_ sender: UIButton) {
         //SAT Scores predicate
-        let criticalReadingPredicate = NSPredicate(format: "satCriticalReadingAvgScore <= '\(criticalReadingScore)'")
-        let mathPredicate = NSPredicate(format: "satMathAvgScore <= '\(mathScore)'")
-        let writingPredicate = NSPredicate(format: "satWritingAvgScore = '\(writingScore)'")
+        let criticalReadingPredicate = NSPredicate(format: "satCriticalReadingAvgScore \(equalitySign)= '\(criticalReadingScore)'")
+        let mathPredicate = NSPredicate(format: "satMathAvgScore \(equalitySign)= '\(mathScore)'")
+        let writingPredicate = NSPredicate(format: "satWritingAvgScore =\(equalitySign) '\(writingScore)'")
         let predicate = NSCompoundPredicate(type: .or, subpredicates: [criticalReadingPredicate, mathPredicate, writingPredicate])
         
         satScoreFetchRequest.predicate = predicate
@@ -59,20 +73,17 @@ class FiltersViewController: UIViewController {
             })
             let scores = filtered
             print(scores?.count)
-            
-            
             print("Done Searching")
             let fetchedResultController: NSFetchedResultsController<School>
-            let attendanceSort = NSSortDescriptor(key: "attendanceRate", ascending: false)
-            let totalStudentSort = NSSortDescriptor(key: "totalStudents", ascending: false)
-        
+            let attendanceSort = NSSortDescriptor(key: "attendanceRate", ascending: self.isAttendanceRateApplied)
+            let totalStudentSort = NSSortDescriptor(key: "totalStudents", ascending: self.isTotalStudentPopulationApplied)
             var allTheSchoolsCompoundPredicate = [NSPredicate]()
             let schoolFetchRequest: NSFetchRequest<School> = School.fetchRequest()
+            
             for score in scores! {
-                print("Score school: \(score.schoolName)")
                 allTheSchoolsCompoundPredicate.append(NSPredicate(format: "dbn = %@", score.dbn!))
             }
-            //schoolFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: allTheSchoolsCompoundPredicate)
+
             schoolFetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: allTheSchoolsCompoundPredicate)
             schoolFetchRequest.sortDescriptors = [attendanceSort, totalStudentSort]
             
@@ -80,11 +91,8 @@ class FiltersViewController: UIViewController {
             
             do {
                 try fetchedResultController.performFetch()
-                //print("Sorted Result: \(fetchedResultController.fetchedObjects?.count)")
+                self.filterDelegate?.filterDidFinishFilteringSchools(with: fetchedResultController)
                 let schools = fetchedResultController.fetchedObjects
-                for school in schools! {
-                    print("Fetched: \(school.schoolName)")
-                }
                 print(schools?.count)
             }
             catch {
@@ -94,8 +102,6 @@ class FiltersViewController: UIViewController {
         
         do {
             try managedObjectContext.execute(asyncRequest)
-            //let scores = try managedObjectContext.fetch(satScoreFetchRequest)
-            //print(scores.count)
         }
         catch {
             fatalError("Error in getting list of homes")
@@ -103,9 +109,32 @@ class FiltersViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
-        //Save changes
         dismiss(animated: true, completion: nil)
     }
-    
+}
 
+extension FiltersViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        let numberRegEx  = ".*[0-9]+.*"
+        let numbersOnlyPredicate = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+        
+        if let text = textField.text , text.count > 0, (numbersOnlyPredicate.evaluate(with: text)) {
+            switch textField.tag {
+            case 0:
+                criticalReadingScore = text
+            case 1:
+                writingScore = text
+            case 2:
+                mathScore = text
+            default:
+                return
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
