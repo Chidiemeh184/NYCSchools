@@ -39,6 +39,9 @@
 		EFE9A16121E7064E005758A3 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */; };
 		EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */; };
 		EFE9A16621E8411B005758A3 /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A16521E8411B005758A3 /* AlertMessages.swift */; };
+		EFE9A16C21EA7083005758A3 /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16A21EA7083005758A3 /* Filters.storyboard */; };
+		EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */; };
+		EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16F21EA7115005758A3 /* Schools.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		EFE9A15F21E7064E005758A3 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		EFE9A16021E7064E005758A3 /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		EFE9A16521E8411B005758A3 /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
+		EFE9A16B21EA7083005758A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NYCSchools/storyboards/Base.lproj/Filters.storyboard; sourceTree = "<group>"; };
+		EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadHistory.storyboard; sourceTree = "<group>"; };
+		EFE9A16F21EA7115005758A3 /* Schools.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schools.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		EFE9A10721E4530F005758A3 /* NYCSchools */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A16921EA6F12005758A3 /* storyboards */,
 				EFE9A13121E45573005758A3 /* helpers */,
 				EFE9A13021E45569005758A3 /* network */,
 				EFE9A12F21E45561005758A3 /* controller */,
@@ -136,7 +143,6 @@
 				EFE9A12B21E4542E005758A3 /* model */,
 				EFE9A10821E4530F005758A3 /* AppDelegate.swift */,
 				EFE9A10A21E4530F005758A3 /* ViewController.swift */,
-				EFE9A10C21E4530F005758A3 /* Main.storyboard */,
 				EFE9A11221E45311005758A3 /* Assets.xcassets */,
 				EFE9A11421E45311005758A3 /* LaunchScreen.storyboard */,
 				EFE9A11721E45311005758A3 /* Info.plist */,
@@ -220,6 +226,17 @@
 				EFE9A13E21E5182C005758A3 /* School+CoreDataProperties.swift */,
 			);
 			path = "coreData models";
+			sourceTree = "<group>";
+		};
+		EFE9A16921EA6F12005758A3 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A10C21E4530F005758A3 /* Main.storyboard */,
+				EFE9A16A21EA7083005758A3 /* Filters.storyboard */,
+				EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */,
+				EFE9A16F21EA7115005758A3 /* Schools.storyboard */,
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,7 +325,10 @@
 				EFE9A11321E45311005758A3 /* Assets.xcassets in Resources */,
 				EFE9A10E21E4530F005758A3 /* Main.storyboard in Resources */,
 				EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */,
+				EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */,
+				EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */,
 				EFE9A15E21E6FF19005758A3 /* MapTableViewCell.xib in Resources */,
+				EFE9A16C21EA7083005758A3 /* Filters.storyboard in Resources */,
 				EFE9A15A21E6DE0B005758A3 /* HeaderTableViewCell.xib in Resources */,
 				EFE9A15221E5DD02005758A3 /* SchoolTableViewCell.xib in Resources */,
 			);
@@ -387,6 +407,14 @@
 				EFE9A11521E45311005758A3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EFE9A16A21EA7083005758A3 /* Filters.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFE9A16B21EA7083005758A3 /* Base */,
+			);
+			name = Filters.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

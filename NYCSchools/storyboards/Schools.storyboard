@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2cC-9n-efj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--NYC Schools-->
+        <scene sceneID="hiR-Oc-TMj">
+            <objects>
+                <tableViewController id="cdr-Lo-hHE" customClass="SchoolTableViewController" customModule="NYCSchools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xcK-iE-p4p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" searchBarStyle="minimal" placeholder="Eg. Riverdale High School" id="CAf-it-t4E">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="cdr-Lo-hHE" id="Aju-yi-cd4"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="schoolCell" textLabel="fFf-V9-Rr8" style="IBUITableViewCellStyleDefault" id="pCN-VJ-yr8">
+                                <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pCN-VJ-yr8" id="Uak-4i-2Fw">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fFf-V9-Rr8">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cdr-Lo-hHE" id="717-Qa-yb7"/>
+                            <outlet property="delegate" destination="cdr-Lo-hHE" id="3Kx-E0-jU1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="NYC Schools" id="Ss6-pM-G7W">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="r8i-i2-vcx"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="v90-eD-6Zx">
+                            <rect key="frame" x="127" y="7" width="121" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="" image="icons8-menu-filled-50"/>
+                                <segment title="" image="icons8-grid-3-filled-50-2"/>
+                            </segments>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="gridDisplayStyleSelected:" destination="cdr-Lo-hHE" eventType="valueChanged" id="rT9-j6-zYD"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="filters" id="DHy-fN-RcR">
+                            <connections>
+                                <segue destination="v1r-Dg-Wuc" kind="presentation" id="EFW-7S-hUs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gridSelectionStyleSegmentedControl" destination="v90-eD-6Zx" id="Xgf-fh-bhV"/>
+                        <outlet property="searchBar" destination="CAf-it-t4E" id="bhX-QM-Bil"/>
+                        <segue destination="rgV-WU-fcg" kind="show" identifier="schoolToSchoolDetail" id="cJb-pJ-JLf"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LwQ-GI-YjI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="-84"/>
+        </scene>
+        <!--School-->
+        <scene sceneID="Aul-F2-d4h">
+            <objects>
+                <tableViewController id="rgV-WU-fcg" customClass="SchoolDetailTableViewController" customModule="NYCSchools" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UN8-JE-cmK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jmj-yX-10N">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jmj-yX-10N" id="l1L-hL-UZd">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rgV-WU-fcg" id="fXm-fa-P68"/>
+                            <outlet property="delegate" destination="rgV-WU-fcg" id="ttn-Ko-MTX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="School" id="ANf-aF-gZ9">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-secured-letter-16" id="F3K-rS-93g">
+                            <connections>
+                                <action selector="composeEmail:" destination="rgV-WU-fcg" id="K8c-Zf-WU9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5b4-4s-HYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3732" y="-84"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SCY-Zy-iIJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2cC-9n-efj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="efT-fs-YkE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="JCn-Mv-Oxg">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cdr-Lo-hHE" kind="relationship" relationship="rootViewController" id="eAe-KY-6rO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Huk-Xw-b1S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="-84"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="K6c-Ly-4Ze">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filters" id="v1r-Dg-Wuc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4HC-7I-Obq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2681" y="381"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-grid-3-filled-50-2" width="15" height="15"/>
+        <image name="icons8-menu-filled-50" width="17" height="13"/>
+        <image name="icons8-secured-letter-16" width="16" height="12"/>
+    </resources>
+</document>

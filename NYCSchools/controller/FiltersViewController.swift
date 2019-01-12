@@ -26,9 +26,9 @@ class FiltersViewController: UIViewController {
     lazy var coreData = CoreDataStack()
     var managedObjectContext : NSManagedObjectContext!
     
-    var criticalReadingScore = "234"
-    var mathScore = "234"
-    var writingScore = "345"
+    var criticalReadingScore = "400"
+    var mathScore = "700"
+    var writingScore = "400"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,38 +45,51 @@ class FiltersViewController: UIViewController {
     
     @IBAction func applyButtonTapped(_ sender: Any) {
         //SAT Scores predicate
-        let criticalReadingPredicate = NSPredicate(format: "satCriticalReadingAvgScore < '\(criticalReadingScore)'")
-        let mathPredicate = NSPredicate(format: "satMathAvgScore < '\(mathScore)'")
-        let writingPredicate = NSPredicate(format: "satWritingAvgScore < '\(writingScore)'")
+        let criticalReadingPredicate = NSPredicate(format: "satCriticalReadingAvgScore <= '\(criticalReadingScore)'")
+        let mathPredicate = NSPredicate(format: "satMathAvgScore <= '\(mathScore)'")
+        let writingPredicate = NSPredicate(format: "satWritingAvgScore = '\(writingScore)'")
         let predicate = NSCompoundPredicate(type: .or, subpredicates: [criticalReadingPredicate, mathPredicate, writingPredicate])
         
         satScoreFetchRequest.predicate = predicate
         
         let asyncRequest = NSAsynchronousFetchRequest(fetchRequest: satScoreFetchRequest) { (results: NSAsynchronousFetchResult<SATScore>) in
-            let scores = results.finalResult
+            
+            let filtered = results.finalResult?.filter({ (score: SATScore) -> Bool in
+                return score.satCriticalReadingAvgScore != "s" && score.satMathAvgScore != "s" && score.satWritingAvgScore != "s"
+            })
+            let scores = filtered
             print(scores?.count)
+            
+            
             print("Done Searching")
-            
-            var schoolRequests: [NSFetchRequest<School>]!
             let fetchedResultController: NSFetchedResultsController<School>
-            let formatSort = NSSortDescriptor(key: "schoolName.first", ascending: true)
-            let nameSort = NSSortDescriptor(key: "totalStudents", ascending: true)
+            let attendanceSort = NSSortDescriptor(key: "attendanceRate", ascending: false)
+            let totalStudentSort = NSSortDescriptor(key: "totalStudents", ascending: false)
         
-            
+            var allTheSchoolsCompoundPredicate = [NSPredicate]()
+            let schoolFetchRequest: NSFetchRequest<School> = School.fetchRequest()
             for score in scores! {
-                let request: NSFetchRequest<School> = School.fetchRequest()
-                request.predicate = NSPredicate(format: "dbn = %@", score.dbn!)
+                print("Score school: \(score.schoolName)")
+                allTheSchoolsCompoundPredicate.append(NSPredicate(format: "dbn = %@", score.dbn!))
             }
+            //schoolFetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: allTheSchoolsCompoundPredicate)
+            schoolFetchRequest.predicate = NSCompoundPredicate(orPredicateWithSubpredicates: allTheSchoolsCompoundPredicate)
+            schoolFetchRequest.sortDescriptors = [attendanceSort, totalStudentSort]
             
-            //let fetchedResultController = NSFetchedResultsController(fetchRequest: NSFetchRequest<School>, managedObjectContext: managedObjectContext, sectionNameKeyPath: "schoolName", cacheName: "NYCSchoolsLibrary")
+            fetchedResultController = NSFetchedResultsController(fetchRequest: schoolFetchRequest, managedObjectContext: self.coreData.persistentContainer.viewContext, sectionNameKeyPath: "schoolName", cacheName: nil)
             
             do {
-                //try fetchedResultController.performFetch()
+                try fetchedResultController.performFetch()
+                //print("Sorted Result: \(fetchedResultController.fetchedObjects?.count)")
+                let schools = fetchedResultController.fetchedObjects
+                for school in schools! {
+                    print("Fetched: \(school.schoolName)")
+                }
+                print(schools?.count)
             }
             catch {
-                fatalError("Error in fetching records")
+                fatalError("Error in fetching sorted School Records records")
             }
-            
         }
         
         do {
