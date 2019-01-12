@@ -100,5 +100,27 @@ public class School: NSManagedObject {
         
         return fetchedResultController
     }
+    
+    internal static func searchForSchool(with schoolName: String, context: NSManagedObjectContext) -> NSFetchedResultsController<School> {
+        let filteredSchoolFetchedResultController: NSFetchedResultsController<School>
+        
+        let request: NSFetchRequest<School> = School.fetchRequest()
+        request.fetchBatchSize = 25
+        request.predicate = NSPredicate(format:"schoolName contains[cd] %@", schoolName)
+        let formatSort = NSSortDescriptor(key: "schoolName.first", ascending: true)
+        let nameSort = NSSortDescriptor(key: "totalStudents", ascending: true)
+        request.sortDescriptors = [formatSort, nameSort]
+        
+        filteredSchoolFetchedResultController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "schoolName", cacheName: nil)
+        
+        do {
+            try filteredSchoolFetchedResultController.performFetch()
+        }
+        catch {
+            fatalError("Error in fetching filtered records")
+        }
+        
+        return filteredSchoolFetchedResultController
+    }
 
 }

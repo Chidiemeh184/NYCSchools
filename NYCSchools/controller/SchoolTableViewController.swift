@@ -13,12 +13,17 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     
     // MARK: - Outlets
     @IBOutlet weak var gridSelectionStyleSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
     var fetchedResultController: NSFetchedResultsController<School>!
     lazy var coreData = CoreDataStack()
     var selectedSchool: School?
     var headerTitles: [String]?
+    var searchString: String?
+    
+    var context: NSManagedObjectContext!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +32,16 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 290
-        
+    
+        context = self.coreData.persistentContainer.viewContext
         loadData()
+        fetchedResultController.delegate = self
     }
     
     // MARK: Private functions
     
     private func loadData() {
-        fetchedResultController = School.getSchools(managedObjectContext: self.coreData.persistentContainer.viewContext)
-        fetchedResultController.delegate = self
+        fetchedResultController = School.getSchools(managedObjectContext: context)
     }
 
     // MARK: - Table view data source
@@ -100,6 +106,27 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         self.tableView.beginUpdates()
         self.tableView.reloadData()
         self.tableView.endUpdates()
+    }
+}
+
+extension SchoolTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Text is: \(searchText)")
+        if searchText.count > 3 {
+            fetchedResultController = School.searchForSchool(with: searchText, context: context)
+            searchBar.showsCancelButton = true
+        } else {
+            loadData()
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        loadData()
+        tableView.reloadData()
     }
     
 }
