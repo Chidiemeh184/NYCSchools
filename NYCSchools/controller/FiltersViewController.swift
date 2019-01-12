@@ -33,7 +33,7 @@ class FiltersViewController: UIViewController {
     var writingScore = "999"
     var isAttendanceRateApplied = false
     var isTotalStudentPopulationApplied = false
-    var equalitySign = "<"
+    var equalitySign = ">"
     
     override func viewDidLoad() {
         super.viewDidLoad()
