@@ -12,6 +12,7 @@ import CoreData
 open class CoreDataStack {
     public init() {
     }
+    static let shared = CoreDataStack()
     
     public lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "NYCSchools")

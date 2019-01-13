@@ -16,14 +16,19 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: - Properties
-    var fetchedResultController: NSFetchedResultsController<School>!
+
     lazy var coreData = CoreDataStack()
+    var dataProvider: DataProvider!
     var selectedSchool: School?
     var headerTitles: [String]?
     var searchString: String?
     var filtersViewController: FiltersViewController?
     
     var context: NSManagedObjectContext!
+    
+    var fetchedResultController: NSFetchedResultsController<School> = {
+        return School.getSchools(managedObjectContext: CoreDataStack().persistentContainer.viewContext)
+    }()
 
     
     override func viewDidLoad() {
@@ -33,10 +38,23 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 290
+        
+        dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
+        dataProvider.fetchData { (error) in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     
         context = self.coreData.persistentContainer.viewContext
-        loadData()
+        //loadData()
         fetchedResultController.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     // MARK: Private functions

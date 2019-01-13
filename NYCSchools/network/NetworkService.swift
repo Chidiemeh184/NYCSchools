@@ -11,16 +11,19 @@ import CoreData
 
 class NetworkService {
 
-    internal var managedObjectContext: NSManagedObjectContext!
+//    internal var managedObjectContext: NSManagedObjectContext!
     let session = URLSession.shared
+//
+//    internal init(managedObjectContext: NSManagedObjectContext) {
+//        self.managedObjectContext = managedObjectContext
+//    }
+//
+//    deinit {
+//        self.managedObjectContext = nil
+//    }
     
-    internal init(managedObjectContext: NSManagedObjectContext) {
-        self.managedObjectContext = managedObjectContext
-    }
-    
-    deinit {
-        self.managedObjectContext = nil
-    }
+    private init() {}
+    static let shared = NetworkService()
     
     func loadSchoolsData(from urlString: String, completionHandler: @escaping (Result<[SchoolCodbl]>) -> Void) {
         
@@ -33,30 +36,33 @@ class NetworkService {
             let httpResponse = response as! HTTPURLResponse
             
             if httpResponse.statusCode == 200 {
-                self.managedObjectContext.perform {
-                    if let responseData = data {
-                        do{
-                            let schools = try JSONDecoder().decode([SchoolCodbl].self, from: responseData)
-
-                            for school in schools {
-                                _ = School(context: self.managedObjectContext, school: school)
-                            }
-
-                            do {
-                                _ = try self.managedObjectContext.save()
-                                completionHandler(.sucess(schools))
-                            } catch {
-                                self.managedObjectContext.rollback()
-                                completionHandler(.failure(NetworkError.couldNotSaveChangesToMOC))
-                                print("Error decoding: \(NetworkError.couldNotSaveChangesToMOC.localizedDescription)")
-                            }
-                            
-                        } catch {
-                            print("Error decoding: \(NetworkError.couldNotDecodeCodable.localizedDescription)")
-                            completionHandler(.failure(NetworkError.couldNotDecodeCodable))
-                        }
+//                self.managedObjectContext.perform {
+//
+//                }
+                
+                if let responseData = data {
+                    do{
+                        let schools = try JSONDecoder().decode([SchoolCodbl].self, from: responseData)
+                        completionHandler(.sucess(schools))
+                        //                            for school in schools {
+                        //                                _ = School(context: self.managedObjectContext, school: school)
+                        //                            }
+                        //
+                        //                            do {
+                        //                                _ = try self.managedObjectContext.save()
+                        //                                completionHandler(.sucess(schools))
+                        //                            } catch {
+                        //                                self.managedObjectContext.rollback()
+                        //                                completionHandler(.failure(NetworkError.couldNotSaveChangesToMOC))
+                        //                                print("Error decoding: \(NetworkError.couldNotSaveChangesToMOC.localizedDescription)")
+                        //                            }
+                        
+                    } catch {
+                        print("Error decoding: \(NetworkError.couldNotDecodeCodable.localizedDescription)")
+                        completionHandler(.failure(NetworkError.couldNotDecodeCodable))
                     }
                 }
+                
             } else {
                  completionHandler(.failure(.serverNotFound))
             }
@@ -71,34 +77,38 @@ class NetworkService {
             return
         }
         
-        let task = session.dataTask(with: url) { [weak self] (data: Data?, response: URLResponse?, error: Error?) in
-            guard let self = self else { return }
+        let task = session.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
+            //guard let self = self else { return }
             let httpResponse = response as! HTTPURLResponse
             
             if httpResponse.statusCode == 200 {
-                self.managedObjectContext.perform {
-                    if let responseData = data {
-                        do{
-                            let scores = try JSONDecoder().decode([SATScoreCodbl].self, from: responseData)
-                            for score in scores {
-                                _ = SATScore(context: self.managedObjectContext, score: score)
-                            }
-
-                            do {
-                              _ = try self.managedObjectContext.save()
-                                completionHandler(.sucess(scores))
-                            } catch {
-                                self.managedObjectContext.rollback()
-                                completionHandler(.failure(NetworkError.couldNotSaveChangesToMOC))
-                                print("Error decoding: \(NetworkError.couldNotSaveChangesToMOC.localizedDescription)")
-                            }
-            
-                        } catch {
-                            print("Error decoding: \(NetworkError.couldNotDecodeCodable.localizedDescription)")
-                            completionHandler(.failure(NetworkError.couldNotDecodeCodable))
-                        }
+//                self.managedObjectContext.perform {
+//
+//                }
+                
+                if let responseData = data {
+                    do {
+                        let scores = try JSONDecoder().decode([SATScoreCodbl].self, from: responseData)
+                        completionHandler(.sucess(scores))
+                        //                            for score in scores {
+                        //                                _ = SATScore(context: self.managedObjectContext, score: score)
+                        //                            }
+                        //
+                        //                            do {
+                        //                              _ = try self.managedObjectContext.save()
+                        //                                completionHandler(.sucess(scores))
+                        //                            } catch {
+                        //                                self.managedObjectContext.rollback()
+                        //                                completionHandler(.failure(NetworkError.couldNotSaveChangesToMOC))
+                        //                                print("Error decoding: \(NetworkError.couldNotSaveChangesToMOC.localizedDescription)")
+                        //                            }
+                        
+                    } catch {
+                        print("Error decoding: \(NetworkError.couldNotDecodeCodable.localizedDescription)")
+                        completionHandler(.failure(NetworkError.couldNotDecodeCodable))
                     }
                 }
+                
             } else {
                 completionHandler(.failure(.serverNotFound))
             }

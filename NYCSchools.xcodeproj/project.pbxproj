@@ -42,6 +42,7 @@
 		EFE9A16C21EA7083005758A3 /* Filters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16A21EA7083005758A3 /* Filters.storyboard */; };
 		EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */; };
 		EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16F21EA7115005758A3 /* Schools.storyboard */; };
+		EFE9A17621EB6B24005758A3 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17521EB6B24005758A3 /* DataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		EFE9A16B21EA7083005758A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = NYCSchools/storyboards/Base.lproj/Filters.storyboard; sourceTree = "<group>"; };
 		EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadHistory.storyboard; sourceTree = "<group>"; };
 		EFE9A16F21EA7115005758A3 /* Schools.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schools.storyboard; sourceTree = "<group>"; };
+		EFE9A17521EB6B24005758A3 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			children = (
 				EFE9A13621E472D8005758A3 /* NetworkService.swift */,
 				EFE9A13821E4761B005758A3 /* Result.swift */,
+				EFE9A17521EB6B24005758A3 /* DataProvider.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				EFE9A14221E5182C005758A3 /* School+CoreDataProperties.swift in Sources */,
 				EFE9A13921E4761B005758A3 /* Result.swift in Sources */,
 				EFE9A14E21E5C8BC005758A3 /* Extensions.swift in Sources */,
+				EFE9A17621EB6B24005758A3 /* DataProvider.swift in Sources */,
 				EFE9A15921E6DE0B005758A3 /* HeaderTableViewCell.swift in Sources */,
 				EFE9A15D21E6FF19005758A3 /* MapTableViewCell.swift in Sources */,
 				EFE9A15521E6D949005758A3 /* EmptyTableViewCell.swift in Sources */,

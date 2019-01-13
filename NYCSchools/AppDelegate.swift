@@ -16,13 +16,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coreData = CoreDataStack()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
+
+        
+//        let schoolsStoryboard = UIStoryboard(name: "Schools", bundle: nil)
+//        let schoolNavController =  schoolsStoryboard.instantiateViewController(withIdentifier: "schoolNavigationController") as! UINavigationController
+//        let schoolTVC = schoolNavController.viewControllers.first as! SchoolTableViewController
+//        let dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
+//        schoolTVC.context = coreData.persistentContainer.viewContext
+//        
+//        dataProvider.fetchData { (error) in
+//            
+//            if error == nil {
+//                print("Downloaded without problems")
+//            }
+//            
+//            DispatchQueue.main.async {
+//                print("Error loading data provider")
+//            }
+//        }
+
+        
+//        deleteRecords()
+//
 //        let schools = "https://data.cityofnewyork.us/resource/97mf-9njv.json"
 //        let scores = "https://data.cityofnewyork.us/resource/734v-jeq5.json"
 //
 //        let context = coreData.persistentContainer.viewContext
 //        let networkService = NetworkService(managedObjectContext: context)
-//        
+//
 //        _ = networkService.loadSchoolsData(from: schools) { response in
 //            switch response {
 //            case .sucess(let nycschools):
@@ -31,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print(error.localizedDescription)
 //            }
 //        }
-//        
+//
 //        _ = networkService.loadScoresData(from: scores) { response in
 //            switch response {
 //            case .sucess(let satscores):
@@ -40,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print(error.localizedDescription)
 //            }
 //        }
-//        
+
         return true
     }
 
@@ -69,5 +90,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+//    func deleteRecords() {
+//        let moc = coreData.persistentContainer.viewContext
+//        let schools: NSFetchRequest<School> = School.fetchRequest()
+//        let scores: NSFetchRequest<SATScore> = SATScore.fetchRequest()
+//
+//        var deleteRequest: NSBatchDeleteRequest
+//        var deleteResults: NSPersistentStoreResult
+//        do {
+//            deleteRequest = NSBatchDeleteRequest(fetchRequest: schools as! NSFetchRequest<NSFetchRequestResult>)
+//            deleteResults = try moc.execute(deleteRequest)
+//
+//            deleteRequest = NSBatchDeleteRequest(fetchRequest: scores as! NSFetchRequest<NSFetchRequestResult>)
+//            deleteResults = try moc.execute(deleteRequest)
+//
+//            try moc.save()
+//        }
+//        catch {
+//            fatalError("Failed removing existing records")
+//        }
+//
+//    }
+    
+    
 }
 

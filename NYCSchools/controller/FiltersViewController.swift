@@ -28,9 +28,9 @@ class FiltersViewController: UIViewController {
 
     var filterDelegate: FiltersViewControllerDelegate?
     
-    var criticalReadingScore = "999"
-    var mathScore = "999"
-    var writingScore = "999"
+    var criticalReadingScore = "300"
+    var mathScore = "300"
+    var writingScore = "300"
     var isAttendanceRateApplied = false
     var isTotalStudentPopulationApplied = false
     var equalitySign = ">"
@@ -72,8 +72,6 @@ class FiltersViewController: UIViewController {
                 return score.satCriticalReadingAvgScore != "s" && score.satMathAvgScore != "s" && score.satWritingAvgScore != "s"
             })
             let scores = filtered
-            print(scores?.count)
-            print("Done Searching")
             let fetchedResultController: NSFetchedResultsController<School>
             let attendanceSort = NSSortDescriptor(key: "attendanceRate", ascending: self.isAttendanceRateApplied)
             let totalStudentSort = NSSortDescriptor(key: "totalStudents", ascending: self.isTotalStudentPopulationApplied)
@@ -92,11 +90,10 @@ class FiltersViewController: UIViewController {
             do {
                 try fetchedResultController.performFetch()
                 self.filterDelegate?.filterDidFinishFilteringSchools(with: fetchedResultController)
-                let schools = fetchedResultController.fetchedObjects
-                print(schools?.count)
             }
             catch {
-                fatalError("Error in fetching sorted School Records records")
+                let errorAlert = AlertMessage.error(for: "Error in fetching sorted School Records records")
+                self.present(errorAlert, animated: true, completion: nil)
             }
         }
         
@@ -104,7 +101,8 @@ class FiltersViewController: UIViewController {
             try managedObjectContext.execute(asyncRequest)
         }
         catch {
-            fatalError("Error in getting list of homes")
+            let errorAlert = AlertMessage.error(for: "Error in getting list of homes")
+            self.present(errorAlert, animated: true, completion: nil)
         }
     }
     
