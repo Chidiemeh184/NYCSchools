@@ -102,6 +102,9 @@ class DataProvider {
                     }
                     context.reset()
                     isSuccesful = true
+                    
+                    //Notify App Data has downloaded
+                    NotificationCenter.default.post(Notification.init(name: .didCompleteDownloadingData))
                 }
                 
                 

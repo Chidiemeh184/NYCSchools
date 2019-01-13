@@ -25,3 +25,7 @@ extension String {
         return "\(formatted)%"
     }
 }
+
+extension Notification.Name {
+    static let didCompleteDownloadingData = Notification.Name("com.chidiemeh184.gmail.NYCSchools.didCompleteDownloadingData")
+}

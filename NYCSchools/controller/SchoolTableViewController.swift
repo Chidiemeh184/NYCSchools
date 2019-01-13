@@ -30,47 +30,31 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         return School.getSchools(managedObjectContext: CoreDataStack().persistentContainer.viewContext)
     }()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: SchoolTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SchoolTableViewCell.reuseIdentifier)
-        tableView.register(UINib(nibName: EmptyTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.reuseIdentifier)
+        setUpTableView()
         
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 290
-        
-        dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
-        dataProvider.fetchData { (error) in
-            if error == nil {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    
+        NotificationCenter.default.addObserver(self, selector: #selector(newSchoolDataFinishedDownloading), name: .didCompleteDownloadingData, object: nil)
         context = self.coreData.persistentContainer.viewContext
-        //loadData()
         fetchedResultController.delegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.tableView.reloadData()
-    }
     
     // MARK: Private functions
     
     private func loadData() {
         fetchedResultController = School.getSchools(managedObjectContext: context)
     }
+    
+    @objc private func newSchoolDataFinishedDownloading() {
+        print("Download completed 🔶🔶🔶 ❇️ 🔶🔶🔶 ")
+        loadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if let sections = fetchedResultController.sections {
-            print("number of sections: \(sections.indices)")
-            return sections.count
-        }
-        return 0
+        return fetchedResultController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,7 +99,6 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
             schoolDetailTVC.managedObjectContext = coreData.persistentContainer.viewContext
             schoolDetailTVC.school = school
         } else if segue.identifier == "toFiltersModal" {
-            print("Filters modal was performed ❇️  ❇️  ❇️  ❇️  ❇️")
             let filtersNav = segue.destination as! UINavigationController
             let filtersVC = filtersNav.viewControllers.first as! FiltersViewController
             filtersVC.filterDelegate = self
@@ -131,6 +114,15 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         self.tableView.reloadData()
         self.tableView.endUpdates()
     }
+    
+    fileprivate func setUpTableView() {
+        tableView.register(UINib(nibName: SchoolTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SchoolTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: EmptyTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.reuseIdentifier)
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 290
+    }
+    
 }
 
 extension SchoolTableViewController: UISearchBarDelegate {
@@ -157,7 +149,6 @@ extension SchoolTableViewController: UISearchBarDelegate {
 extension SchoolTableViewController: FiltersViewControllerDelegate {
     func filterDidFinishFilteringSchools(with frc: NSFetchedResultsController<School>) {
         fetchedResultController = frc
-        print("School is filtering and done: \(frc.fetchedObjects?.count) ❇️  ❇️")
         tableView.reloadData()
     }
 }
