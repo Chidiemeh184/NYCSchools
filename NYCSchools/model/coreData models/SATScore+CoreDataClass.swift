@@ -14,8 +14,8 @@ import CoreData
 public class SATScore: NSManagedObject {
 
     internal convenience init(context moc: NSManagedObjectContext, score: SATScoreCodbl) {
-        self.init(context: moc)
-        
+        let entity = NSEntityDescription.entity(forEntityName: "SATScore", in: moc)
+        self.init(entity: entity!, insertInto: moc)
         dbn = score.dbn
         numOfSatTestTakers = score.numOfSatTestTakers
         satCriticalReadingAvgScore = score.satCriticalReadingAvgScore

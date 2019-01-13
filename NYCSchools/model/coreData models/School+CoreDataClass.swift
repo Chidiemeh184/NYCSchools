@@ -14,8 +14,8 @@ import CoreData
 public class School: NSManagedObject {
     
     internal convenience init(context moc: NSManagedObjectContext, school: SchoolCodbl) {
-        self.init(context: moc)
-        
+        let entity = NSEntityDescription.entity(forEntityName: "School", in: moc)
+        self.init(entity: entity!, insertInto: moc)
         academicopportunities1 = school.academicopportunities1
         academicopportunities2 = school.academicopportunities2
         admissionspriority11 = school.admissionspriority11
