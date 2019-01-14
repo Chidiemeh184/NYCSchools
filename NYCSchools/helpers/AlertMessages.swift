@@ -17,4 +17,14 @@ struct AlertMessage {
         
         return alert
     }
+    
+    static func success(for message: String) -> UIAlertController {
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        let alert = UIAlertController(title: "Success 😋", message: message, preferredStyle: .alert)
+        alert.addAction(okAction)
+        
+        return alert
+    }
+    
 }

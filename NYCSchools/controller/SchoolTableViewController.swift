@@ -49,7 +49,10 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
     }
     
     @objc private func newSchoolDataFinishedDownloading() {
-        print("Download completed 🔶🔶🔶 ❇️ 🔶🔶🔶 ")
+        DispatchQueue.main.async { [weak self] in
+            let successAlert = AlertMessage.success(for: "New data has been loaded ... ")
+            self?.present(successAlert, animated: true, completion: nil)
+        }
         loadData()
     }
 
@@ -117,6 +120,24 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         self.tableView.endUpdates()
     }
     
+    @IBAction func refreshButtonTapped(_ sender: UIBarButtonItem) {
+        // Create the alert controller
+        let alertController = UIAlertController(title: "Fetch New Data 🤖", message: "\nNYC Schools would like to fetch and refresh new data from the remote server. The details of the downloads will be shown on the download history tab. Also dont worry, we follow GDPR and your data is only saved on disk.\n", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            self.fetchNewRefreshedData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            return
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     fileprivate func setUpTableView() {
         tableView.register(UINib(nibName: SchoolTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: SchoolTableViewCell.reuseIdentifier)
         tableView.register(UINib(nibName: EmptyTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: EmptyTableViewCell.reuseIdentifier)
@@ -125,6 +146,15 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         tableView.estimatedRowHeight = 290
     }
     
+    fileprivate func fetchNewRefreshedData() {
+        let dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
+        dataProvider.fetchData { (error) in
+            if let error = error {
+                let errorAlert = AlertMessage.error(for: error.localizedDescription)
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 extension SchoolTableViewController: UISearchBarDelegate {

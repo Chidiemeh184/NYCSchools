@@ -54,7 +54,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="NYC Schools" id="Ss6-pM-G7W">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="r8i-i2-vcx"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="r8i-i2-vcx">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="cdr-Lo-hHE" id="wqc-OI-w9a"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="v90-eD-6Zx">
                             <rect key="frame" x="127" y="7" width="121" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
