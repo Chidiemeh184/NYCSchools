@@ -29,3 +29,11 @@ extension String {
 extension Notification.Name {
     static let didCompleteDownloadingData = Notification.Name("com.chidiemeh184.gmail.NYCSchools.didCompleteDownloadingData")
 }
+
+extension Date {
+    func toString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E, d MMM yyyy HH:mm:ss Z"
+        return dateFormatter.string(from: self)
+    }
+}

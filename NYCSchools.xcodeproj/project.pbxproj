@@ -43,6 +43,8 @@
 		EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */; };
 		EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A16F21EA7115005758A3 /* Schools.storyboard */; };
 		EFE9A17621EB6B24005758A3 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17521EB6B24005758A3 /* DataProvider.swift */; };
+		EFE9A17D21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17B21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift */; };
+		EFE9A17E21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17C21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		EFE9A16D21EA70D7005758A3 /* DownloadHistory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DownloadHistory.storyboard; sourceTree = "<group>"; };
 		EFE9A16F21EA7115005758A3 /* Schools.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Schools.storyboard; sourceTree = "<group>"; };
 		EFE9A17521EB6B24005758A3 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		EFE9A17B21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadLog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EFE9A17C21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +227,8 @@
 		EFE9A13A21E51789005758A3 /* coreData models */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A17B21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift */,
+				EFE9A17C21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift */,
 				EFE9A13B21E5182C005758A3 /* SATScore+CoreDataClass.swift */,
 				EFE9A13C21E5182C005758A3 /* SATScore+CoreDataProperties.swift */,
 				EFE9A13D21E5182C005758A3 /* School+CoreDataClass.swift */,
@@ -351,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9A17E21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift in Sources */,
 				EFE9A14821E5B92C005758A3 /* DownloadHistoryTableViewController.swift in Sources */,
 				EFE9A10B21E4530F005758A3 /* ViewController.swift in Sources */,
 				EFE9A16121E7064E005758A3 /* DescriptionTableViewCell.swift in Sources */,
@@ -361,6 +368,7 @@
 				EFE9A10921E4530F005758A3 /* AppDelegate.swift in Sources */,
 				EFE9A15121E5DD02005758A3 /* SchoolTableViewCell.swift in Sources */,
 				EFE9A13F21E5182C005758A3 /* SATScore+CoreDataClass.swift in Sources */,
+				EFE9A17D21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift in Sources */,
 				EFE9A14021E5182C005758A3 /* SATScore+CoreDataProperties.swift in Sources */,
 				EFE9A14121E5182C005758A3 /* School+CoreDataClass.swift in Sources */,
 				EFE9A13521E466DA005758A3 /* SATScore+Codable.swift in Sources */,

@@ -39,11 +39,13 @@ class SchoolTableViewController: UITableViewController, NSFetchedResultsControll
         fetchedResultController.delegate = self
     }
     
-    
     // MARK: Private functions
     
     private func loadData() {
         fetchedResultController = School.getSchools(managedObjectContext: context)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     @objc private func newSchoolDataFinishedDownloading() {

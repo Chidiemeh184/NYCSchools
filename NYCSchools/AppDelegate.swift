@@ -17,10 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
-        dataProvider.fetchData { (error) in
-            if error != nil {
-                print("Error downloading data")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            let dataProvider = DataProvider(persistentContainer: coreData.persistentContainer, repository: NetworkService.shared)
+            dataProvider.fetchData { (error) in
+                if error != nil {
+                    print("Error downloading data")
+                }
             }
         }
         
