@@ -45,6 +45,10 @@
 		EFE9A17621EB6B24005758A3 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17521EB6B24005758A3 /* DataProvider.swift */; };
 		EFE9A17D21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17B21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift */; };
 		EFE9A17E21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A17C21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift */; };
+		EFE9A18221EE1E4C005758A3 /* appIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18121EE1E4C005758A3 /* appIcon.png */; };
+		EFE9A18421EE459A005758A3 /* NYSCSchoolsHome.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18321EE459A005758A3 /* NYSCSchoolsHome.png */; };
+		EFE9A18821EE45C6005758A3 /* schoolOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18721EE45C6005758A3 /* schoolOpen.png */; };
+		EFE9A18A21EE4A6F005758A3 /* downloadHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18921EE4A6F005758A3 /* downloadHistory.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,11 @@
 		EFE9A17521EB6B24005758A3 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		EFE9A17B21EC05E7005758A3 /* DownloadLog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadLog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EFE9A17C21EC05E7005758A3 /* DownloadLog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EFE9A17F21EE170D005758A3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EFE9A18121EE1E4C005758A3 /* appIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon.png; sourceTree = "<group>"; };
+		EFE9A18321EE459A005758A3 /* NYSCSchoolsHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NYSCSchoolsHome.png; sourceTree = "<group>"; };
+		EFE9A18721EE45C6005758A3 /* schoolOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schoolOpen.png; sourceTree = "<group>"; };
+		EFE9A18921EE4A6F005758A3 /* downloadHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadHistory.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +132,11 @@
 		EFE9A0FC21E4530F005758A3 = {
 			isa = PBXGroup;
 			children = (
+				EFE9A18021EE1E0E005758A3 /* screenshots */,
 				EFE9A10721E4530F005758A3 /* NYCSchools */,
 				EFE9A11F21E45311005758A3 /* NYCSchoolsTests */,
 				EFE9A10621E4530F005758A3 /* Products */,
+				EFE9A17F21EE170D005758A3 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +259,17 @@
 			path = storyboards;
 			sourceTree = "<group>";
 		};
+		EFE9A18021EE1E0E005758A3 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A18721EE45C6005758A3 /* schoolOpen.png */,
+				EFE9A18921EE4A6F005758A3 /* downloadHistory.png */,
+				EFE9A18121EE1E4C005758A3 /* appIcon.png */,
+				EFE9A18321EE459A005758A3 /* NYSCSchoolsHome.png */,
+			);
+			path = screenshots;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,14 +351,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9A18221EE1E4C005758A3 /* appIcon.png in Resources */,
+				EFE9A18421EE459A005758A3 /* NYSCSchoolsHome.png in Resources */,
 				EFE9A11621E45311005758A3 /* LaunchScreen.storyboard in Resources */,
 				EFE9A15621E6D949005758A3 /* EmptyTableViewCell.xib in Resources */,
+				EFE9A18A21EE4A6F005758A3 /* downloadHistory.png in Resources */,
 				EFE9A11321E45311005758A3 /* Assets.xcassets in Resources */,
 				EFE9A10E21E4530F005758A3 /* Main.storyboard in Resources */,
 				EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */,
 				EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */,
 				EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */,
 				EFE9A15E21E6FF19005758A3 /* MapTableViewCell.xib in Resources */,
+				EFE9A18821EE45C6005758A3 /* schoolOpen.png in Resources */,
 				EFE9A16C21EA7083005758A3 /* Filters.storyboard in Resources */,
 				EFE9A15A21E6DE0B005758A3 /* HeaderTableViewCell.xib in Resources */,
 				EFE9A15221E5DD02005758A3 /* SchoolTableViewCell.xib in Resources */,
