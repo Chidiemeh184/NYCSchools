@@ -23,13 +23,13 @@ A simple CoreData app to show a list of NYC schools and their SAT scores. Comsum
 
 
 <p align="center">    
-
+![Home Schools](screenshots/NYSCHome384.png)
 </p>
 
 ![Home Schools](screenshots/NYSCSchoolsHome.png)
-![App Icon](screenshots/appIcon.png)
 ![Schools Open](screenshots/schoolOpen.png)
 ![Download History](screenshots/downloadHistory.png)
+![App Icon](screenshots/appIcon.png)
 
 ## Some challenges I encountered
 

@@ -49,6 +49,7 @@
 		EFE9A18421EE459A005758A3 /* NYSCSchoolsHome.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18321EE459A005758A3 /* NYSCSchoolsHome.png */; };
 		EFE9A18821EE45C6005758A3 /* schoolOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18721EE45C6005758A3 /* schoolOpen.png */; };
 		EFE9A18A21EE4A6F005758A3 /* downloadHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18921EE4A6F005758A3 /* downloadHistory.png */; };
+		EFE9A18C21EE4DA0005758A3 /* NYSCHome384.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18B21EE4DA0005758A3 /* NYSCHome384.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		EFE9A18321EE459A005758A3 /* NYSCSchoolsHome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NYSCSchoolsHome.png; sourceTree = "<group>"; };
 		EFE9A18721EE45C6005758A3 /* schoolOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = schoolOpen.png; sourceTree = "<group>"; };
 		EFE9A18921EE4A6F005758A3 /* downloadHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadHistory.png; sourceTree = "<group>"; };
+		EFE9A18B21EE4DA0005758A3 /* NYSCHome384.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NYSCHome384.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 		EFE9A18021EE1E0E005758A3 /* screenshots */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A18B21EE4DA0005758A3 /* NYSCHome384.png */,
 				EFE9A18721EE45C6005758A3 /* schoolOpen.png */,
 				EFE9A18921EE4A6F005758A3 /* downloadHistory.png */,
 				EFE9A18121EE1E4C005758A3 /* appIcon.png */,
@@ -358,6 +361,7 @@
 				EFE9A18A21EE4A6F005758A3 /* downloadHistory.png in Resources */,
 				EFE9A11321E45311005758A3 /* Assets.xcassets in Resources */,
 				EFE9A10E21E4530F005758A3 /* Main.storyboard in Resources */,
+				EFE9A18C21EE4DA0005758A3 /* NYSCHome384.png in Resources */,
 				EFE9A16221E7064E005758A3 /* DescriptionTableViewCell.xib in Resources */,
 				EFE9A16E21EA70D7005758A3 /* DownloadHistory.storyboard in Resources */,
 				EFE9A17021EA7115005758A3 /* Schools.storyboard in Resources */,
