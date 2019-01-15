@@ -21,9 +21,6 @@ A simple CoreData app to show a list of NYC schools and their SAT scores. Comsum
 * Alerts and notifications
 * View downloaded data using SQL tool
 
-   
-![Home Schools](screenshots/NYSCHome384.png)
-
 
 ![Home Schools](screenshots/NYSCSchoolsHome.png)
 ![Schools Open](screenshots/schoolOpen.png)
@@ -37,7 +34,7 @@ For the filters feature, there has to be communication with the home screen once
 The other problem I encountered was syching the API downloads with loading to coreData. Since both tasks are performed on different threads I had to use asyn request or perform and wait after the two api calls are made. The problelm here this can not be delay when appDelegate is loading because iOS can terminate the app if it takes too long. What it caused was the home screen will load before the data is downloaded. So I used notification here to notofy the app once the data is downloaded and loaded to coredata. Then the home screen tableview can be reloaded with an alert
 
 
-## Installing
+# Installing
 
 Just the normal way. no additional things needed. Build on XCode or your iphone
 
