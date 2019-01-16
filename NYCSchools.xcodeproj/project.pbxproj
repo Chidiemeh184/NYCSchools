@@ -51,6 +51,9 @@
 		EFE9A18A21EE4A6F005758A3 /* downloadHistory.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18921EE4A6F005758A3 /* downloadHistory.png */; };
 		EFE9A18C21EE4DA0005758A3 /* NYSCHome384.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18B21EE4DA0005758A3 /* NYSCHome384.png */; };
 		EFE9A19021EE7B7D005758A3 /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = EFE9A18F21EE7B7C005758A3 /* screenshot.png */; };
+		EFE9A19321EEB317005758A3 /* ResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A19221EEB316005758A3 /* ResultTest.swift */; };
+		EFE9A19521EEBE8B005758A3 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A19421EEBE8B005758A3 /* NetworkServiceTest.swift */; };
+		EFE9A19721EED815005758A3 /* DataProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE9A19621EED815005758A3 /* DataProviderTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,9 @@
 		EFE9A18921EE4A6F005758A3 /* downloadHistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downloadHistory.png; sourceTree = "<group>"; };
 		EFE9A18B21EE4DA0005758A3 /* NYSCHome384.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NYSCHome384.png; sourceTree = "<group>"; };
 		EFE9A18F21EE7B7C005758A3 /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		EFE9A19221EEB316005758A3 /* ResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTest.swift; sourceTree = "<group>"; };
+		EFE9A19421EEBE8B005758A3 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
+		EFE9A19621EED815005758A3 /* DataProviderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,7 @@
 		EFE9A11F21E45311005758A3 /* NYCSchoolsTests */ = {
 			isa = PBXGroup;
 			children = (
+				EFE9A19121EEB2DE005758A3 /* network */,
 				EFE9A12021E45311005758A3 /* NYCSchoolsTests.swift */,
 				EFE9A12221E45311005758A3 /* Info.plist */,
 			);
@@ -274,6 +281,16 @@
 				EFE9A18F21EE7B7C005758A3 /* screenshot.png */,
 			);
 			path = screenshots;
+			sourceTree = "<group>";
+		};
+		EFE9A19121EEB2DE005758A3 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				EFE9A19221EEB316005758A3 /* ResultTest.swift */,
+				EFE9A19421EEBE8B005758A3 /* NetworkServiceTest.swift */,
+				EFE9A19621EED815005758A3 /* DataProviderTest.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,6 +441,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE9A19521EEBE8B005758A3 /* NetworkServiceTest.swift in Sources */,
+				EFE9A19321EEB317005758A3 /* ResultTest.swift in Sources */,
+				EFE9A19721EED815005758A3 /* DataProviderTest.swift in Sources */,
 				EFE9A12121E45311005758A3 /* NYCSchoolsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
